@@ -4,12 +4,13 @@
 #include <LiquidCrystal.h>
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 
-#define NO_KEY 0
-#define RIGHT 1
-#define LEFT 2
-#define UP 3
-#define DOWN 4
-#define SELECT 5
+#define KEY_NOTHING 0
+#define KEY_RIGHT 1
+#define KEY_LEFT 2
+#define KEY_UP 3
+#define KEY_DOWN 4
+#define KEY_SELECT 5
+#define KEY_NOT_READ 255;
 
 // voltage of one div of A/D (based on resistor divider) in Volts
 #define VOLTAGE_DIV 0.0157356
@@ -29,6 +30,7 @@ LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 byte pwm;
 byte pwmp;
 byte step;
+byte key;
 volatile int voltage;
 volatile int vin;
 float wh = 0;
@@ -99,6 +101,7 @@ ISR(TIMER2_OVF_vect) {
     }
 
     analogWrite(3, pwm);
+    key=readKey();
     measure_counter=0;
   }
 
@@ -126,22 +129,22 @@ int readKey()
   int analog = analogRead(0);
 
   if (analog < 65) {
-    return RIGHT;
+    return KEY_RIGHT;
   }  
   else if (analog < 219) {
-    return UP;
+    return KEY_UP;
   } 
   else if ( analog < 394) {
-    return DOWN;
+    return KEY_DOWN;
   } 
   else if (analog < 601) {
-    return LEFT;
+    return KEY_LEFT;
   } 
   else if (analog < 872) {
-    return SELECT;
+    return KEY_SELECT;
   } 
   else {
-    return NO_KEY;
+    return KEY_NOTHING;
   }
 }
 
@@ -295,6 +298,14 @@ void updateDisplay() {
   lcd.setCursor(8, 1);
   lcd.print("Vo=");
   lcd.print(voltage * VOLTAGE_DIV);
+  if (key==KEY_UP) {
+    digitalWrite(13,HIGH);
+  }
+  
+  if (key==KEY_DOWN) {
+    digitalWrite(13,LOW);
+  }
+  
 }
 
 void addWh()
