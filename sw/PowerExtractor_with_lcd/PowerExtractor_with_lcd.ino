@@ -2,25 +2,20 @@
 #include <avr/io.h>
 
 #include <LiquidCrystal.h>
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
-
-#define KEY_NOTHING 0
-#define KEY_RIGHT 1
-#define KEY_LEFT 2
-#define KEY_UP 3
-#define KEY_DOWN 4
-#define KEY_SELECT 5
-#define KEY_NOT_READ 255;
+LiquidCrystal lcd(2, 4, 7, 8, 11, 12);
 
 // voltage of one div of A/D (based on resistor divider) in Volts
-#define VOLTAGE_DIV 0.0157356
-// current of one div of A/D (based on resistor divider) in Amperes
-#define CURRENT_DIV 0.0021919020
+#define VOLTAGE_IN_DIV (1.1/1024)*((220+4.7)/4.7)
+#define VOLTAGE_OUT_DIV (1.1/1024)*((220+10)/10)
 
-// Target voltage: 7.2V possible to get from formula TARGET_VOLTAGE=7.2/VOLTAGE_DIV
-#define TARGET_VOLTAGE 457
-// for 14.4V
-// #define TARGET_VOLTAGE 915
+// current of one div of A/D (based on sensing resistor and sense amplifier) in Amperes per DIV
+#define CURRENT_DIV (1.1/1024.0)/0.1
+//#define CURRENT_DIV (50*0.03)/1024
+
+// Target voltage: formula TARGET_VOLTAGE=7.2/VOLTAGE_OUT_DIV
+#define TARGET_VOLTAGE 558
+
+#define SELF_POWER 5
 
 /* Maximum duty cycle, 100% is 255, we have SEPIC converter, so 100% duty cycle is nonsense to use, it will saturate coils and output
  voltage will be 0.
@@ -38,8 +33,8 @@ volatile boolean whcount = false;
 volatile boolean display_flag = false;
 boolean whdisplay = false;
 int whperiod = 0;
-
-int int_counter;
+byte off_counter = 0;
+int mppt_counter;
 int measure_counter;
 volatile int current;
 boolean dir;
@@ -54,20 +49,19 @@ int vout_flag_remove;
 
 // called with frequency of 31,5kHz
 ISR(TIMER2_OVF_vect) {
-  int_counter += 1;
   measure_counter += 1;
   if (measure_counter == 200) {
     //reading twice to get more precise output after switching measurement MUX
-    analogRead(A4);
-    vin = analogRead(A4);        
+    analogRead(A5);
+    vin = analogRead(A5);
   } 
   else if ( measure_counter==400 ) {
-    analogRead(A3);
-    current = analogRead(A3);
+    analogRead(A7);
+    current = analogRead(A7);
   } 
   else if ( measure_counter==600 ) {
-    analogRead(A5);
-    voltage = analogRead(A5);
+    analogRead(A6);
+    voltage = analogRead(A6);
     if (voltage > TARGET_VOLTAGE) {
       pwm--;
       if (voltage > (TARGET_VOLTAGE * 1.05)) {
@@ -99,20 +93,25 @@ ISR(TIMER2_OVF_vect) {
         pwmp--;
       }
     }
-
     analogWrite(3, pwm);
-    key=readKey();
     measure_counter=0;
-  }
-
-  // 5 times in second
-  if (int_counter == 6300) {
-    // to sync measurement in same phase
-    measure_counter=0;
-    int_counter = 0;
-    if (vout_flag == VOUT_MPPT_RUNNING) mppt_do();    
-    whcount = true;
-    display_flag = true;
+    mppt_counter+=1;
+    if (mppt_counter >= 20) {
+      mppt_counter = 0;
+      if (vout_flag == VOUT_MPPT_RUNNING) mppt_do();
+        if (current < 10) {
+          off_counter+=1;
+          if ( off_counter>= 99) {
+            digitalWrite(SELF_POWER,LOW);
+            off_counter=99;
+          }
+        } else {
+          off_counter=0;
+          digitalWrite(SELF_POWER,HIGH);
+        }
+        whcount = true;
+        display_flag = true;
+    }
   }
   if (vout_flag_remove != 0) {
     vout_flag_remove--;
@@ -124,32 +123,9 @@ ISR(TIMER2_OVF_vect) {
   }
 };
 
-int readKey()
-{
-  int analog = analogRead(0);
-
-  if (analog < 65) {
-    return KEY_RIGHT;
-  }  
-  else if (analog < 219) {
-    return KEY_UP;
-  } 
-  else if ( analog < 394) {
-    return KEY_DOWN;
-  } 
-  else if (analog < 601) {
-    return KEY_LEFT;
-  } 
-  else if (analog < 872) {
-    return KEY_SELECT;
-  } 
-  else {
-    return KEY_NOTHING;
-  }
-}
-
 void setup()
 {
+  analogReference(INTERNAL);
   // Enable interrupt from timer2
   TIMSK2 |= (1 << TOIE2);
   // set up the LCD's number of columns and rows:
@@ -162,6 +138,9 @@ void setup()
   createChars();
   lcd.begin(16, 2);
   pinMode(2,OUTPUT);
+  pinMode(SELF_POWER,OUTPUT);
+  digitalWrite(SELF_POWER,HIGH);
+  pinMode(A7,INPUT);
   digitalWrite(2,HIGH);
 }
 
@@ -186,10 +165,7 @@ void createChars()
 
 void mppt_do()
 {
-  /* try to find maximum power point, current is increased, beacause when current is low it is hard to precisely measure it so it is
-   directed by voltage
-   */
-  long power=voltage*(current+10);
+  long power=(voltage*current);
   if (lastpower > power) {
     if (step > 2) {
       step /= 2;
@@ -223,7 +199,6 @@ void mppt_do()
     }
   }
   lastpower = power;
-  analogWrite(3, pwm);
 }
 
 void loop()
@@ -256,9 +231,12 @@ void updateDisplay() {
     if (stepWrite > 7) stepWrite = 7;
     lcd.write(stepWrite);  
   }
+  // arrow
   lcd.write(byte(0x7e));
   // pwm bargraph
   lcd.write(byte(((pwm - 1) * 8) / 200));
+  lcd.print(9-off_counter/10);
+  lcd.print("    ");
   lcd.setCursor(8, 0);
   if (whdisplay) {
     lcd.print("Vi=");
@@ -292,26 +270,19 @@ void updateDisplay() {
     lcd.print("Wh  ");
   } 
   else {
-    lcd.print((current * CURRENT_DIV) * (voltage * VOLTAGE_DIV));
+    lcd.print((current * CURRENT_DIV) * (voltage * VOLTAGE_OUT_DIV));
     lcd.print("W   ");
   }
   lcd.setCursor(8, 1);
   lcd.print("Vo=");
-  lcd.print(voltage * VOLTAGE_DIV);
-  if (key==KEY_UP) {
-    digitalWrite(13,HIGH);
-  }
-  
-  if (key==KEY_DOWN) {
-    digitalWrite(13,LOW);
-  }
-  
+  lcd.print(voltage * VOLTAGE_OUT_DIV);
 }
 
 void addWh()
 {  
   whcount = false;
-  wh += (((current * CURRENT_DIV) * (voltage * VOLTAGE_DIV)) / (5.*3600));
+  wh += (current * CURRENT_DIV * voltage * VOLTAGE_OUT_DIV) / (0.2625*3600);
 }
+
 
 
