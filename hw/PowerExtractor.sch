@@ -15004,8 +15004,8 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <instance part="D7" gate="G$1" x="500.38" y="48.26" rot="R270"/>
 <instance part="U$1" gate="A" x="528.32" y="38.1"/>
 <instance part="D8" gate="G$1" x="513.08" y="43.18" rot="R180"/>
-<instance part="HEAD_LED" gate="-1" x="556.26" y="45.72" rot="R180"/>
-<instance part="HEAD_LED" gate="-2" x="556.26" y="40.64" rot="R180"/>
+<instance part="HEAD_LED" gate="-1" x="556.26" y="40.64" rot="R180"/>
+<instance part="HEAD_LED" gate="-2" x="556.26" y="45.72" rot="R180"/>
 <instance part="C8" gate="G$1" x="520.7" y="33.02" rot="R180"/>
 <instance part="T3" gate="A" x="589.28" y="33.02"/>
 <instance part="R20" gate="G$1" x="581.66" y="38.1" rot="R90"/>
@@ -15341,7 +15341,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="274.32" y1="63.5" x2="279.4" y2="63.5" width="0.1524" layer="91"/>
 <junction x="274.32" y="63.5"/>
 <wire x1="279.4" y1="63.5" x2="279.4" y2="243.84" width="0.1524" layer="91"/>
-<label x="287.02" y="185.42" size="1.778" layer="95" rot="R270"/>
+<label x="279.4" y="185.42" size="1.778" layer="95" rot="R270"/>
 <wire x1="279.4" y1="243.84" x2="58.42" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="243.84" x2="58.42" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="223.52" x2="68.58" y2="223.52" width="0.1524" layer="91"/>
@@ -15828,20 +15828,6 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <pinref part="A1" gate="G$1" pin="D13/(SCK)+LED"/>
 </segment>
 </net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="U$1" gate="A" pin="OUT+"/>
-<pinref part="HEAD_LED" gate="-1" pin="KL"/>
-<wire x1="551.18" y1="45.72" x2="548.64" y2="45.72" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="U$1" gate="A" pin="OUT-"/>
-<pinref part="HEAD_LED" gate="-2" pin="KL"/>
-<wire x1="551.18" y1="40.64" x2="548.64" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$1" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="S+"/>
@@ -16024,6 +16010,20 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <pinref part="R11" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="35.56" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="35.56" x2="185.42" y2="43.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="U$1" gate="A" pin="OUT+"/>
+<pinref part="HEAD_LED" gate="-2" pin="KL"/>
+<wire x1="548.64" y1="45.72" x2="551.18" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="U$1" gate="A" pin="OUT-"/>
+<wire x1="548.64" y1="40.64" x2="551.18" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="HEAD_LED" gate="-1" pin="KL"/>
 </segment>
 </net>
 </nets>
