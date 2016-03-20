@@ -850,9 +850,9 @@ Vgsth=1-2V</description>
 <connect gate="G$1" pin="D7" pad="D7"/>
 <connect gate="G$1" pin="D8" pad="D8"/>
 <connect gate="G$1" pin="D9" pad="D9"/>
-<connect gate="G$1" pin="GND" pad="GND.1 GND.2"/>
+<connect gate="G$1" pin="GND" pad="GND.1 GND.2" route="any"/>
 <connect gate="G$1" pin="REF" pad="REF"/>
-<connect gate="G$1" pin="RST" pad="RST.1 RST.2"/>
+<connect gate="G$1" pin="RST" pad="RST.1 RST.2" route="any"/>
 <connect gate="G$1" pin="VIN" pad="VIN"/>
 </connects>
 <technologies>
