@@ -13672,32 +13672,6 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <text x="7.62" y="1.27" size="1.27" layer="21">&gt;NAME</text>
 <text x="7.62" y="3.81" size="1.27" layer="21">&gt;VALUE</text>
 </package>
-<package name="SOT223">
-<description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;</description>
-<wire x1="3.277" y1="1.778" x2="3.277" y2="-1.778" width="0.2032" layer="21"/>
-<wire x1="3.277" y1="-1.778" x2="-3.277" y2="-1.778" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="-1.778" x2="-3.277" y2="1.778" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="1.778" x2="3.277" y2="1.778" width="0.2032" layer="21"/>
-<wire x1="-3.473" y1="4.483" x2="3.473" y2="4.483" width="0.0508" layer="39"/>
-<wire x1="3.473" y1="-4.483" x2="-3.473" y2="-4.483" width="0.0508" layer="39"/>
-<wire x1="-3.473" y1="-4.483" x2="-3.473" y2="4.483" width="0.0508" layer="39"/>
-<wire x1="3.473" y1="4.483" x2="3.473" y2="-4.483" width="0.0508" layer="39"/>
-<smd name="1" x="-2.311" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
-<smd name="2" x="0" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
-<smd name="3" x="2.311" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
-<smd name="4" x="0" y="3.099" dx="3.6" dy="2.2" layer="1"/>
-<text x="-2.54" y="0.0508" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-1.3208" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
-<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
-<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
-<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
-<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
-<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
-<rectangle x1="-1" y1="-1" x2="1" y2="1" layer="35"/>
-</package>
 <package name="ARDUINO_NANO_V3">
 <pad name="D12" x="0" y="0" drill="1" shape="long"/>
 <pad name="D11" x="0" y="2.54" drill="1" shape="long"/>
@@ -14113,27 +14087,6 @@ high speed (Philips)</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="IRLL014N">
-<description>Vds=55V
-Rds(on)=0R14
-Id=2A
-Vgsth=1-2V</description>
-<gates>
-<gate name="A" symbol="N_MOSFET" x="0" y="0"/>
-</gates>
-<devices>
-<device name="_" package="SOT223">
-<connects>
-<connect gate="A" pin="D" pad="2 4"/>
-<connect gate="A" pin="G" pad="1"/>
-<connect gate="A" pin="S" pad="3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="ARDUINO_NANO_V3">
 <gates>
 <gate name="G$1" symbol="ARDUINO_NANO_V3" x="15.24" y="-2.54"/>
@@ -14172,101 +14125,6 @@ Vgsth=1-2V</description>
 </connects>
 <technologies>
 <technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="photo-elements">
-<description>&lt;b&gt;Photocells&lt;/b&gt;&lt;p&gt;
-Manufakturer: PerkinElmer Optoelektronics&lt;br&gt;
-www.perkinelmer.com/opto</description>
-<packages>
-<package name="VT900">
-<description>&lt;b&gt;Photoconductive Cell&lt;/b&gt; VT900 Series&lt;p&gt;
-Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt900seriesdatasheet.pdf</description>
-<wire x1="-1.2" y1="1.975" x2="1.2" y2="1.975" width="0.2032" layer="21"/>
-<wire x1="1.2" y1="-1.975" x2="-1.2" y2="-1.975" width="0.2032" layer="21"/>
-<wire x1="-1.2" y1="-1.975" x2="-1.225" y2="1.975" width="0.2032" layer="21" curve="-116.381221"/>
-<wire x1="1.2" y1="1.975" x2="1.225" y2="-1.975" width="0.2032" layer="21" curve="-116.381221"/>
-<wire x1="-1" y1="1.6" x2="0.8" y2="1.6" width="0.1016" layer="21"/>
-<wire x1="0.8" y1="1.6" x2="0.8" y2="1.2" width="0.1016" layer="21" curve="-180"/>
-<wire x1="0.8" y1="1.2" x2="-0.6" y2="1.2" width="0.1016" layer="21"/>
-<wire x1="-0.6" y1="1.2" x2="-0.6" y2="0.8" width="0.1016" layer="21" curve="180"/>
-<wire x1="-0.6" y1="0.8" x2="0.4" y2="0.8" width="0.1016" layer="21"/>
-<wire x1="0.4" y1="0.8" x2="0.4" y2="0.4" width="0.1016" layer="21" curve="-180"/>
-<wire x1="0.4" y1="0.4" x2="-0.2" y2="0.4" width="0.1016" layer="21"/>
-<wire x1="-0.2" y1="0.4" x2="-0.2" y2="0" width="0.1016" layer="21" curve="180"/>
-<wire x1="-0.2" y1="0" x2="0.2" y2="0" width="0.1016" layer="21"/>
-<wire x1="0.2" y1="0" x2="0.2" y2="-0.4" width="0.1016" layer="21" curve="-180"/>
-<wire x1="0.2" y1="-0.4" x2="-0.4" y2="-0.4" width="0.1016" layer="21"/>
-<wire x1="-0.4" y1="-0.4" x2="-0.4" y2="-0.8" width="0.1016" layer="21" curve="180"/>
-<wire x1="-0.4" y1="-0.8" x2="0.6" y2="-0.8" width="0.1016" layer="21"/>
-<wire x1="0.6" y1="-0.8" x2="0.6" y2="-1.2" width="0.1016" layer="21" curve="-180"/>
-<wire x1="0.6" y1="-1.2" x2="-1" y2="-1.2" width="0.1016" layer="21"/>
-<wire x1="-1" y1="-1.2" x2="-1" y2="-1.6" width="0.1016" layer="21" curve="180"/>
-<wire x1="-1" y1="-1.6" x2="1" y2="-1.6" width="0.1016" layer="21"/>
-<wire x1="1" y1="-1.6" x2="1.2" y2="-1.8" width="0.1016" layer="21" curve="-90"/>
-<wire x1="-1" y1="1.6" x2="-1.2" y2="1.8" width="0.1016" layer="21" curve="-90"/>
-<pad name="1" x="-1.27" y="0" drill="0.8" diameter="1.4"/>
-<pad name="2" x="1.27" y="0" drill="0.8" diameter="1.4"/>
-<text x="-2.54" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="2.54" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="PHOTOCELL">
-<wire x1="-3.048" y1="2.413" x2="-1.651" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="-3.175" y1="1.27" x2="-1.778" y2="-0.127" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-1.016" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="1.016" y1="-1.143" x2="-1.016" y2="-0.381" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="-0.381" x2="1.016" y2="0.381" width="0.254" layer="94"/>
-<wire x1="1.016" y1="0.381" x2="-1.016" y2="1.143" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="1.143" x2="1.016" y2="1.905" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="1.016" y2="1.905" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="-1.905" x2="1.016" y2="-1.143" width="0.254" layer="94"/>
-<text x="2.54" y="0" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="0" y="5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-<polygon width="0.1524" layer="94">
-<vertex x="-1.778" y="-0.127"/>
-<vertex x="-2.667" y="0.254"/>
-<vertex x="-2.159" y="0.762"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="-1.651" y="1.016"/>
-<vertex x="-2.54" y="1.397"/>
-<vertex x="-2.032" y="1.905"/>
-</polygon>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="VT9" prefix="OPH">
-<description>&lt;b&gt;Photoconductive Cell&lt;/b&gt; VT900 Series&lt;p&gt;
-Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt900seriesdatasheet.pdf</description>
-<gates>
-<gate name="G$1" symbol="PHOTOCELL" x="-2.54" y="0" swaplevel="1"/>
-</gates>
-<devices>
-<device name="" package="VT900">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="0N1"/>
-<technology name="0N2"/>
-<technology name="0N3"/>
-<technology name="0N4"/>
-<technology name="35GA"/>
-<technology name="35GB"/>
-<technology name="35GC"/>
-<technology name="3N1"/>
-<technology name="3N2"/>
-<technology name="3N3"/>
-<technology name="3N4"/>
 </technologies>
 </device>
 </devices>
@@ -14496,6 +14354,50 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt900serie
 <rectangle x1="0.889" y1="-2.921" x2="1.651" y2="-1.905" layer="21"/>
 <rectangle x1="3.429" y1="-2.921" x2="4.191" y2="-1.905" layer="21"/>
 </package>
+<package name="1X02">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-1.905" y1="1.27" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="0.635" x2="0" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="0.635" x2="-2.54" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="-1.27" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0" y1="0.635" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="0.635" x2="2.54" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="-0.635" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="0" y2="-0.635" width="0.1524" layer="21"/>
+<pad name="1" x="-1.27" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="1.27" y="0" drill="1.016" shape="long" rot="R90"/>
+<text x="-2.6162" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
+<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
+</package>
+<package name="1X02/90">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-2.54" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="0" y1="-1.905" x2="0" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="0.635" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="0.635" x2="-2.54" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="6.985" x2="-1.27" y2="1.27" width="0.762" layer="21"/>
+<wire x1="0" y1="-1.905" x2="2.54" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="-1.905" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="0.635" x2="0" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="6.985" x2="1.27" y2="1.27" width="0.762" layer="21"/>
+<pad name="1" x="-1.27" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="1.27" y="-3.81" drill="1.016" shape="long" rot="R90"/>
+<text x="-3.175" y="-3.81" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="4.445" y="-3.81" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.651" y1="0.635" x2="-0.889" y2="1.143" layer="21"/>
+<rectangle x1="0.889" y1="0.635" x2="1.651" y2="1.143" layer="21"/>
+<rectangle x1="-1.651" y1="-2.921" x2="-0.889" y2="-1.905" layer="21"/>
+<rectangle x1="0.889" y1="-2.921" x2="1.651" y2="-1.905" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="PINHD5">
@@ -14522,6 +14424,16 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt900serie
 <pin name="2" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="3" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="4" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+<symbol name="PINHD2">
+<wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="5.08" x2="-6.35" y2="-2.54" width="0.4064" layer="94"/>
+<text x="-6.35" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -14592,6 +14504,32 @@ Source: http://optoelectronics.perkinelmer.com/content/Datasheets/DTS_vt900serie
 <connect gate="A" pin="2" pad="2"/>
 <connect gate="A" pin="3" pad="3"/>
 <connect gate="A" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PINHD-1X2" prefix="JP" uservalue="yes">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="PINHD2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X02">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="/90" package="1X02/90">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14777,29 +14715,26 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="DIRECT_CHARGE" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="R11" library="rcl" deviceset="R-EU_" device="0207/10" value="100k"/>
 <part name="R12" library="rcl" deviceset="R-EU_" device="0207/10" value="47k"/>
-<part name="OPH1" library="photo-elements" deviceset="VT9" device="" technology="0N1"/>
 <part name="R13" library="rcl" deviceset="R-EU_" device="M1206" value="0R01"/>
 <part name="U1" library="triakcz" deviceset="ZXCT1086E5TA" device=""/>
 <part name="T2" library="triakcz" deviceset="IRF7416" device=""/>
 <part name="Q4" library="triakcz" deviceset="BC847*" device="SMD"/>
 <part name="R17" library="rcl" deviceset="R-EU_" device="0207/10" value="100k"/>
-<part name="R18" library="rcl" deviceset="R-EU_" device="0207/10" value="100k"/>
+<part name="R18" library="rcl" deviceset="R-EU_" device="M0805" value="100k"/>
 <part name="D5" library="diode" deviceset="ZENER-DIODE" device="SOD80C" value="BZV55C15SMD"/>
-<part name="R7" library="rcl" deviceset="R-EU_" device="0207/10" value="220R"/>
-<part name="R19" library="rcl" deviceset="R-EU_" device="0207/10" value="330k"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="M0805" value="220R"/>
+<part name="R19" library="rcl" deviceset="R-EU_" device="M0805" value="330k"/>
 <part name="C6" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="D7" library="triakcz" deviceset="1N4148" device="MINIMELF"/>
 <part name="U$1" library="triakcz" deviceset="LDD700L" device=""/>
 <part name="D8" library="triakcz" deviceset="1N4148" device="MINIMELF"/>
 <part name="HEAD_LED" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="C8" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
-<part name="T3" library="triakcz" deviceset="IRLL014N" device="_"/>
 <part name="R20" library="rcl" deviceset="R-EU_" device="0207/10" value="2k2"/>
-<part name="R21" library="rcl" deviceset="R-EU_" device="0207/10" value="100k"/>
+<part name="R21" library="rcl" deviceset="R-EU_" device="M0805" value="100k"/>
 <part name="TAIL_LED" library="con-wago-500" deviceset="W237-102" device=""/>
-<part name="T4" library="triakcz" deviceset="IRLL014N" device="_"/>
 <part name="R22" library="rcl" deviceset="R-EU_" device="0207/10" value="2k2"/>
-<part name="R23" library="rcl" deviceset="R-EU_" device="0207/10" value="100k"/>
+<part name="R23" library="rcl" deviceset="R-EU_" device="R0805" value="100k"/>
 <part name="12VOUT" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="F3" library="fuse" deviceset="SHK20L" device="" value="F1.5A"/>
 <part name="R24" library="rcl" deviceset="R-EU_" device="M0805" value="330K"/>
@@ -14831,6 +14766,9 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="C12" library="rcl" deviceset="C-EU" device="C0805" value="10n"/>
 <part name="D10" library="triakcz" deviceset="1N4148" device="MINIMELF"/>
 <part name="C14" library="rcl" deviceset="C-EU" device="C0805" value="1uF/50V"/>
+<part name="Q2" library="transistor-power" deviceset="IRF530" device="" value="IRL530"/>
+<part name="Q7" library="transistor-power" deviceset="IRF530" device="" value="IRF530"/>
+<part name="PHOTORESIST" library="pinhead" deviceset="PINHD-1X2" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14874,7 +14812,6 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <instance part="DIRECT_CHARGE" gate="-2" x="-101.6" y="7.62"/>
 <instance part="R11" gate="G$1" x="185.42" y="48.26" rot="R90"/>
 <instance part="R12" gate="G$1" x="-12.7" y="200.66" rot="R180"/>
-<instance part="OPH1" gate="G$1" x="17.78" y="200.66" rot="R90"/>
 <instance part="R13" gate="G$1" x="198.12" y="86.36"/>
 <instance part="U1" gate="A" x="248.92" y="119.38"/>
 <instance part="T2" gate="A" x="502.92" y="86.36" rot="MR90"/>
@@ -14891,12 +14828,10 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <instance part="HEAD_LED" gate="-1" x="556.26" y="40.64" rot="R180"/>
 <instance part="HEAD_LED" gate="-2" x="556.26" y="45.72" rot="R180"/>
 <instance part="C8" gate="G$1" x="520.7" y="33.02" rot="R180"/>
-<instance part="T3" gate="A" x="589.28" y="33.02"/>
 <instance part="R20" gate="G$1" x="581.66" y="38.1" rot="R90"/>
 <instance part="R21" gate="G$1" x="581.66" y="25.4" rot="R270"/>
 <instance part="TAIL_LED" gate="-1" x="604.52" y="50.8" rot="R180"/>
 <instance part="TAIL_LED" gate="-2" x="604.52" y="55.88" rot="R180"/>
-<instance part="T4" gate="A" x="629.92" y="33.02"/>
 <instance part="R22" gate="G$1" x="622.3" y="38.1" rot="R90"/>
 <instance part="R23" gate="G$1" x="622.3" y="25.4" rot="R270"/>
 <instance part="12VOUT" gate="-1" x="670.56" y="99.06" rot="R180"/>
@@ -14933,6 +14868,9 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <instance part="C12" gate="G$1" x="55.88" y="25.4" rot="R180"/>
 <instance part="D10" gate="G$1" x="116.84" y="233.68" rot="R270"/>
 <instance part="C14" gate="G$1" x="40.64" y="223.52"/>
+<instance part="Q2" gate="G$1" x="586.74" y="33.02"/>
+<instance part="Q7" gate="G$1" x="627.38" y="33.02"/>
+<instance part="PHOTORESIST" gate="G$1" x="15.24" y="193.04" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -15087,7 +15025,6 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <junction x="520.7" y="20.32"/>
 <wire x1="525.78" y1="20.32" x2="581.66" y2="20.32" width="0.1524" layer="91"/>
 <junction x="525.78" y="20.32"/>
-<pinref part="T3" gate="A" pin="S"/>
 <wire x1="581.66" y1="20.32" x2="589.28" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="589.28" y1="20.32" x2="589.28" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="R21" gate="G$1" pin="2"/>
@@ -15107,7 +15044,6 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="231.14" y1="101.6" x2="154.94" y2="101.6" width="0.1524" layer="91"/>
 <junction x="231.14" y="101.6"/>
 <wire x1="589.28" y1="20.32" x2="622.3" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="T4" gate="A" pin="S"/>
 <wire x1="622.3" y1="20.32" x2="629.92" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="629.92" y1="20.32" x2="629.92" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="R23" gate="G$1" pin="2"/>
@@ -15122,8 +15058,6 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="139.7" y1="281.94" x2="139.7" y2="264.16" width="0.1524" layer="91"/>
 <wire x1="139.7" y1="264.16" x2="68.58" y2="264.16" width="0.1524" layer="91"/>
 <junction x="68.58" y="264.16"/>
-<pinref part="OPH1" gate="G$1" pin="2"/>
-<wire x1="22.86" y1="200.66" x2="27.94" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="200.66" x2="27.94" y2="20.32" width="0.1524" layer="91"/>
 <junction x="40.64" y="218.44"/>
 <pinref part="D1" gate="1" pin="A"/>
@@ -15147,6 +15081,11 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="55.88" y1="22.86" x2="55.88" y2="20.32" width="0.1524" layer="91"/>
 <junction x="55.88" y="20.32"/>
 <pinref part="C14" gate="G$1" pin="2"/>
+<pinref part="Q2" gate="G$1" pin="S"/>
+<pinref part="Q7" gate="G$1" pin="S"/>
+<pinref part="PHOTORESIST" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="200.66" x2="17.78" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="200.66" x2="17.78" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ARDUINO_VOUT_SENSE" class="0">
@@ -15317,15 +15256,16 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 </net>
 <net name="ARDUINO_LIGHT_IN" class="0">
 <segment>
-<pinref part="OPH1" gate="G$1" pin="1"/>
 <wire x1="-7.62" y1="200.66" x2="2.54" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="2.54" y1="200.66" x2="12.7" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="200.66" x2="15.24" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="200.66" x2="2.54" y2="208.28" width="0.1524" layer="91"/>
 <junction x="2.54" y="200.66"/>
 <label x="40.64" y="180.34" size="1.778" layer="95" rot="R270"/>
 <wire x1="2.54" y1="208.28" x2="73.66" y2="208.28" width="0.1524" layer="91"/>
 <pinref part="A1" gate="G$1" pin="A0"/>
+<pinref part="PHOTORESIST" gate="G$1" pin="2"/>
+<wire x1="15.24" y1="195.58" x2="15.24" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="OUTPUT_TO_SENSE" class="0">
@@ -15445,12 +15385,12 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 </net>
 <net name="N$24" class="0">
 <segment>
-<pinref part="T3" gate="A" pin="G"/>
 <pinref part="R20" gate="G$1" pin="1"/>
 <pinref part="R21" gate="G$1" pin="1"/>
 <wire x1="581.66" y1="33.02" x2="581.66" y2="30.48" width="0.1524" layer="91"/>
 <junction x="581.66" y="30.48"/>
 <wire x1="581.66" y1="30.48" x2="584.2" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="ARDUINO_OUT_TAIL_LIGHT" class="0">
@@ -15464,10 +15404,10 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 </net>
 <net name="N$25" class="0">
 <segment>
-<pinref part="T3" gate="A" pin="D"/>
 <wire x1="589.28" y1="38.1" x2="589.28" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="589.28" y1="50.8" x2="599.44" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="TAIL_LED" gate="-1" pin="KL"/>
+<pinref part="Q2" gate="G$1" pin="D"/>
 </segment>
 </net>
 <net name="+OUT" class="0">
@@ -15482,12 +15422,12 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 </net>
 <net name="N$27" class="0">
 <segment>
-<pinref part="T4" gate="A" pin="G"/>
 <pinref part="R22" gate="G$1" pin="1"/>
 <pinref part="R23" gate="G$1" pin="1"/>
 <wire x1="622.3" y1="33.02" x2="622.3" y2="30.48" width="0.1524" layer="91"/>
 <junction x="622.3" y="30.48"/>
 <wire x1="622.3" y1="30.48" x2="624.84" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="Q7" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="ARDUINO_OUT_CHARGE_OUTPUT_CONTROL" class="0">
@@ -15501,10 +15441,10 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 </net>
 <net name="N$28" class="0">
 <segment>
-<pinref part="T4" gate="A" pin="D"/>
 <wire x1="629.92" y1="38.1" x2="629.92" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="629.92" y1="99.06" x2="665.48" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="12VOUT" gate="-1" pin="KL"/>
+<pinref part="Q7" gate="G$1" pin="D"/>
 </segment>
 </net>
 <net name="N$29" class="0">
