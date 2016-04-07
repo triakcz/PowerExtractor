@@ -14775,7 +14775,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="12VOUT" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="F3" library="fuse" deviceset="SHK20L" device="" value="F1.5A"/>
 <part name="R24" library="rcl" deviceset="R-EU_" device="M0805" value="330K"/>
-<part name="D9" library="triakcz" deviceset="1N4148" device="DO35-10" value="1N4148DO35-10"/>
+<part name="D9" library="triakcz" deviceset="1N4148" device="MINIMELF" value="1N4148MINIMELF"/>
 <part name="R28" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
 <part name="R29" library="rcl" deviceset="R-EU_" device="M0805" value="10k"/>
 <part name="C13" library="rcl" deviceset="C-EU" device="C0805" value="100N"/>
@@ -14801,8 +14801,8 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="PHOTORESIST" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="U$2" library="triakcz" deviceset="BCV47" device=""/>
 <part name="U$3" library="triakcz" deviceset="BCV47" device=""/>
-<part name="R8" library="rcl" deviceset="R-EU_" device="M0805" value="100k"/>
-<part name="R26" library="rcl" deviceset="R-EU_" device="M0805" value="100k"/>
+<part name="R8" library="rcl" deviceset="R-EU_" device="0207/10" value="100k"/>
+<part name="R26" library="rcl" deviceset="R-EU_" device="R0805" value="100k"/>
 <part name="D11" library="triakcz" deviceset="1N4148" device="MINIMELF"/>
 <part name="R25" library="rcl" deviceset="R-EU_" device="M0805" value="330K"/>
 <part name="U$4" library="triakcz" deviceset="BCV47" device=""/>
@@ -14918,30 +14918,17 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <busses>
 </busses>
 <nets>
-<net name="HUB_1" class="0">
+<net name="HUB1" class="0">
 <segment>
 <wire x1="-127" y1="43.18" x2="-86.36" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="43.18" x2="-86.36" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="B1" gate="1" pin="AC2"/>
 <wire x1="-86.36" y1="30.48" x2="-88.9" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="DYNAMO" gate="-1" pin="KL"/>
-<junction x="-86.36" y="30.48"/>
-<pinref part="R24" gate="G$1" pin="2"/>
-<wire x1="-86.36" y1="30.48" x2="-86.36" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-86.36" y1="15.24" x2="-55.88" y2="15.24" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="HUB2" class="0">
-<segment>
-<pinref part="B1" gate="1" pin="AC1"/>
-<wire x1="-99.06" y1="30.48" x2="-104.14" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="-104.14" y1="30.48" x2="-104.14" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="DYNAMO" gate="-2" pin="KL"/>
-<wire x1="-127" y1="20.32" x2="-104.14" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="R25" gate="G$1" pin="2"/>
-<wire x1="-55.88" y1="7.62" x2="-104.14" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="-104.14" y1="7.62" x2="-104.14" y2="20.32" width="0.1524" layer="91"/>
-<junction x="-104.14" y="20.32"/>
+<wire x1="-55.88" y1="7.62" x2="-86.36" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="30.48" x2="-86.36" y2="7.62" width="0.1524" layer="91"/>
+<junction x="-86.36" y="30.48"/>
 </segment>
 </net>
 <net name="ARDUINO_VIN_ANALOG" class="0">
@@ -15844,6 +15831,19 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="124.46" y1="190.5" x2="124.46" y2="226.06" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="190.5" x2="124.46" y2="190.5" width="0.1524" layer="91"/>
 <pinref part="A1" gate="G$1" pin="D12(MISO)"/>
+</segment>
+</net>
+<net name="HUB2" class="0">
+<segment>
+<pinref part="DYNAMO" gate="-2" pin="KL"/>
+<wire x1="-127" y1="20.32" x2="-104.14" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-104.14" y1="30.48" x2="-104.14" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="B1" gate="1" pin="AC1"/>
+<wire x1="-99.06" y1="30.48" x2="-104.14" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="R24" gate="G$1" pin="2"/>
+<wire x1="-104.14" y1="15.24" x2="-55.88" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-104.14" y1="20.32" x2="-104.14" y2="15.24" width="0.1524" layer="91"/>
+<junction x="-104.14" y="20.32"/>
 </segment>
 </net>
 </nets>
