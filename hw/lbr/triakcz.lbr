@@ -643,7 +643,7 @@ Vgsmax=20V Rds=6R @ Vgs=4.5V</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="BSS84">
+<deviceset name="BSS84" prefix="Q">
 <description>P-MOSFET -0.13 A -50 V
 RDS(ON) = 10 Ω @ Vgs = -5 V
 
@@ -726,7 +726,7 @@ ITT-Cannon-Cannon</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="IRF7416">
+<deviceset name="IRF7416" prefix="Q">
 <gates>
 <gate name="A" symbol="P_MOSFET" x="0" y="0"/>
 </gates>
@@ -796,7 +796,7 @@ high speed (Philips)</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="LDD700L">
+<deviceset name="LDD700L" prefix="X">
 <gates>
 <gate name="A" symbol="LDD_700L_SYM" x="-7.62" y="-2.54"/>
 </gates>
@@ -838,7 +838,7 @@ Vgsth=1-2V</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ARDUINO_NANO_V3">
+<deviceset name="ARDUINO_NANO_V3" prefix="A">
 <gates>
 <gate name="G$1" symbol="ARDUINO_NANO_V3" x="15.24" y="-2.54"/>
 </gates>
@@ -880,7 +880,7 @@ Vgsth=1-2V</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="BCV47">
+<deviceset name="BCV47" prefix="T">
 <description>BCV47
 
 NPN DARL 60V 500mA H21e&gt;20000</description>
