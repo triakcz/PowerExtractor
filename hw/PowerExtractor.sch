@@ -14736,8 +14736,8 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="D6" library="diode" deviceset="1N6267A" device=""/>
 <part name="B1" library="rectifier" deviceset="RB1A" device="" value="1.5A"/>
 <part name="D5" library="diode" deviceset="1N5908" device="" value="SB360"/>
-<part name="R18" library="rcl" deviceset="R-EU_" device="M0805" value="15k"/>
-<part name="R19" library="rcl" deviceset="R-EU_" device="M0805" value="4k7"/>
+<part name="R18" library="rcl" deviceset="R-EU_" device="M0805" value="33k"/>
+<part name="R19" library="rcl" deviceset="R-EU_" device="M0805" value="10k"/>
 <part name="C11" library="rcl" deviceset="C-EU" device="C0805" value="10n"/>
 <part name="AC_IN" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="C9" library="rcl" deviceset="C-EU" device="C0805" value="1uF/50V"/>
@@ -14747,7 +14747,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="F2" library="fuse" deviceset="SHK20L" device="" value="F3.15A"/>
 <part name="F1" library="fuse" deviceset="SHK20L" device="" value="F3.15A"/>
 <part name="Q2" library="triakcz" deviceset="BSS84" device=""/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="M0805" value="47k"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="M0805" value="100k"/>
 <part name="X3" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="DC_IN" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="R11" library="rcl" deviceset="R-EU_" device="M0805" value="100k"/>
@@ -14759,7 +14759,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="R20" library="rcl" deviceset="R-EU_" device="0207/10" value="100k"/>
 <part name="R21" library="rcl" deviceset="R-EU_" device="M0805" value="100k"/>
 <part name="D10" library="diode" deviceset="ZENER-DIODE" device="SOD80C" value="BZV55C15SMD"/>
-<part name="R26" library="rcl" deviceset="R-EU_" device="M0805" value="220R"/>
+<part name="R26" library="rcl" deviceset="R-EU_" device="M0805" value="2k2"/>
 <part name="R25" library="rcl" deviceset="R-EU_" device="M0805" value="330k"/>
 <part name="C13" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="D11" library="triakcz" deviceset="1N4148" device="MINIMELF"/>
@@ -14796,8 +14796,8 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <part name="A1" library="triakcz" deviceset="ARDUINO_NANO_V3" device=""/>
 <part name="C4" library="rcl" deviceset="C-EU" device="C0805" value="10n"/>
 <part name="C3" library="rcl" deviceset="C-EU" device="C0805" value="1uF/50V"/>
-<part name="Q5" library="transistor-power" deviceset="IRF530" device="" value="IRL530"/>
-<part name="Q6" library="transistor-power" deviceset="IRF530" device="" value="IRF530"/>
+<part name="Q5" library="transistor-power" deviceset="IRF530" device="" value="IRL530N"/>
+<part name="Q6" library="transistor-power" deviceset="IRF530" device="" value="IRL530N"/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="T2" library="triakcz" deviceset="BCV47" device=""/>
 <part name="T1" library="triakcz" deviceset="BCV47" device=""/>
