@@ -2185,7 +2185,7 @@ design rules under a new name.</description>
 <attribute name="OC_FARNELL" value="unknown" x="149.86" y="12.7" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C14" library="rcl" package="C0805" value="100n" x="55.245" y="68.58" rot="R90"/>
-<element name="R27" library="rcl" package="0207/10" value="2k2" x="48.26" y="60.96" rot="MR180"/>
+<element name="R27" library="rcl" package="0207/10" value="2k2" x="48.26" y="60.96"/>
 <element name="R28" library="rcl" package="M0805" value="100k" x="30.48" y="64.77" rot="R90"/>
 <element name="X6" library="con-wago-500" package="W237-102" value="" x="41.91" y="76.2">
 <attribute name="OC_NEWARK" value="70K9898" x="90.17" y="1.27" size="1.778" layer="27" display="off"/>
@@ -2719,20 +2719,21 @@ design rules under a new name.</description>
 <contactref element="Q5" pad="G"/>
 <wire x1="30.48" y1="63.82" x2="30.48" y2="62.23" width="0.6096" layer="1"/>
 <wire x1="30.48" y1="62.23" x2="34.29" y2="62.23" width="0.6096" layer="1"/>
-<wire x1="43.18" y1="60.96" x2="35.56" y2="60.96" width="0.6096" layer="16"/>
 <wire x1="35.56" y1="60.96" x2="34.29" y2="62.23" width="0.6096" layer="16"/>
+<wire x1="35.56" y1="60.96" x2="43.18" y2="60.96" width="0.6096" layer="16"/>
 </signal>
 <signal name="ARDUINO_OUT_TAIL_LIGHT">
 <contactref element="R27" pad="2"/>
 <contactref element="A1" pad="D6"/>
-<wire x1="53.34" y1="60.96" x2="55.88" y2="57.15" width="0.6096" layer="16"/>
-<wire x1="55.88" y1="57.15" x2="55.88" y2="55.88" width="0.6096" layer="16"/>
 <wire x1="55.88" y1="55.88" x2="57.15" y2="54.61" width="0.6096" layer="16"/>
 <wire x1="57.15" y1="54.61" x2="60.325" y2="54.61" width="0.6096" layer="16"/>
 <wire x1="60.325" y1="54.61" x2="60.96" y2="53.975" width="0.6096" layer="16"/>
 <wire x1="60.96" y1="53.975" x2="60.96" y2="44.45" width="0.6096" layer="16"/>
 <wire x1="60.96" y1="44.45" x2="54.61" y2="38.1" width="0.6096" layer="16"/>
 <wire x1="54.61" y1="38.1" x2="54.61" y2="36.83" width="0.6096" layer="16"/>
+<wire x1="55.88" y1="55.88" x2="55.88" y2="59.69" width="0.6096" layer="16"/>
+<wire x1="55.88" y1="59.69" x2="54.61" y2="60.96" width="0.6096" layer="16"/>
+<wire x1="54.61" y1="60.96" x2="53.34" y2="60.96" width="0.6096" layer="16"/>
 </signal>
 <signal name="N$25">
 <contactref element="X6" pad="1"/>
