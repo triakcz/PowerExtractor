@@ -733,9 +733,9 @@ ITT-Cannon-Cannon</description>
 <devices>
 <device name="" package="SO-8">
 <connects>
-<connect gate="A" pin="D" pad="1 2 3"/>
+<connect gate="A" pin="D" pad="5 6 7 8"/>
 <connect gate="A" pin="G" pad="4"/>
-<connect gate="A" pin="S" pad="5 6 7 8"/>
+<connect gate="A" pin="S" pad="1 2 3"/>
 </connects>
 <technologies>
 <technology name=""/>

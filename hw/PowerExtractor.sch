@@ -13987,9 +13987,9 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <devices>
 <device name="" package="SO-8">
 <connects>
-<connect gate="A" pin="D" pad="1 2 3"/>
+<connect gate="A" pin="D" pad="5 6 7 8"/>
 <connect gate="A" pin="G" pad="4"/>
-<connect gate="A" pin="S" pad="5 6 7 8"/>
+<connect gate="A" pin="S" pad="1 2 3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14782,7 +14782,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <sheet>
 <plain>
 <text x="137.16" y="180.34" size="1.778" layer="91" rot="R90">D2/D3 ONLY !</text>
-<text x="129.54" y="289.56" size="1.778" layer="91">VCC GND SCL SDA</text>
+<text x="129.54" y="289.56" size="1.778" layer="91">GND VCC SCL SDA</text>
 </plain>
 <instances>
 <instance part="Q1" gate="G$1" x="106.68" y="33.02"/>
@@ -14898,7 +14898,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <junction x="-86.36" y="30.48"/>
 </segment>
 </net>
-<net name="ARDUINO_VIN_ANALOG" class="0">
+<net name="ARDUINO_VIN_SENSE" class="0">
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
 <pinref part="R8" gate="G$1" pin="1"/>
@@ -15044,9 +15044,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <pinref part="KEYBRD" gate="A" pin="1"/>
 <wire x1="27.94" y1="264.16" x2="68.58" y2="264.16" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="264.16" x2="68.58" y2="284.48" width="0.1524" layer="91"/>
-<pinref part="DSPL" gate="A" pin="2"/>
-<wire x1="139.7" y1="284.48" x2="139.7" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="264.16" x2="68.58" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="264.16" x2="68.58" y2="264.16" width="0.1524" layer="91"/>
 <junction x="68.58" y="264.16"/>
 <wire x1="27.94" y1="200.66" x2="27.94" y2="20.32" width="0.1524" layer="91"/>
 <junction x="40.64" y="218.44"/>
@@ -15083,6 +15081,8 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <pinref part="T3" gate="G$1" pin="E"/>
 <wire x1="248.92" y1="30.48" x2="248.92" y2="20.32" width="0.1524" layer="91"/>
 <junction x="248.92" y="20.32"/>
+<pinref part="DSPL" gate="A" pin="1"/>
+<wire x1="137.16" y1="284.48" x2="137.16" y2="264.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ARDUINO_VOUT_SENSE" class="0">
@@ -15465,7 +15465,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <junction x="15.24" y="40.64"/>
 </segment>
 </net>
-<net name="N$34" class="0">
+<net name="DISPLAY_SDA" class="0">
 <segment>
 <wire x1="73.66" y1="198.12" x2="53.34" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="198.12" x2="53.34" y2="248.92" width="0.1524" layer="91"/>
@@ -15475,7 +15475,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <pinref part="A1" gate="G$1" pin="A4"/>
 </segment>
 </net>
-<net name="N$35" class="0">
+<net name="DISPLAY_SCL" class="0">
 <segment>
 <pinref part="DSPL" gate="A" pin="3"/>
 <wire x1="142.24" y1="284.48" x2="142.24" y2="251.46" width="0.1524" layer="91"/>
@@ -15629,7 +15629,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="441.96" y1="147.32" x2="441.96" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="ARDUINO_IOUT_SENSE" class="0">
 <segment>
 <pinref part="IC1" gate="B" pin="-IN"/>
 <wire x1="355.6" y1="165.1" x2="365.76" y2="165.1" width="0.1524" layer="91"/>
@@ -15642,6 +15642,7 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="48.26" y1="254" x2="48.26" y2="193.04" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="193.04" x2="73.66" y2="193.04" width="0.1524" layer="91"/>
 <pinref part="A1" gate="G$1" pin="A6"/>
+<label x="355.6" y="220.98" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -15677,15 +15678,15 @@ Source: http://cache.national.com/ds/LM/LM158.pdf</description>
 <wire x1="-40.64" y1="223.52" x2="-40.64" y2="220.98" width="0.1524" layer="91"/>
 <junction x="-40.64" y="220.98"/>
 <pinref part="A1" gate="G$1" pin="5V"/>
-<pinref part="DSPL" gate="A" pin="1"/>
-<wire x1="137.16" y1="284.48" x2="137.16" y2="246.38" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="246.38" x2="55.88" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="246.38" x2="55.88" y2="246.38" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="246.38" x2="55.88" y2="220.98" width="0.1524" layer="91"/>
 <junction x="55.88" y="220.98"/>
 <wire x1="-17.78" y1="200.66" x2="-40.64" y2="200.66" width="0.1524" layer="91"/>
 <junction x="-40.64" y="200.66"/>
 <wire x1="15.24" y1="114.3" x2="15.24" y2="132.08" width="0.1524" layer="91"/>
 <junction x="15.24" y="132.08"/>
+<pinref part="DSPL" gate="A" pin="2"/>
+<wire x1="139.7" y1="246.38" x2="139.7" y2="284.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
