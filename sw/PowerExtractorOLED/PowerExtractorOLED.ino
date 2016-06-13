@@ -1,3 +1,9 @@
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <avr/interrupt.h>
+
 #define SELF_POWER 7
 #define CHARGE_POWER 8
 #define PWM_OUT 10
@@ -26,11 +32,6 @@ const uint8_t KEYS[NUM_KEYS] = {9,4,12,11};
 
 #define PWM_MAX 220
 
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-
 struct AdcValuesHolder {
   uint16_t LIGHT;
   uint32_t VI;
@@ -52,7 +53,6 @@ struct AdcFilteredHolder {
 volatile struct AdcValuesHolder adcvalues;
 volatile struct AdcValuesHolder adcvalues2;
 volatile struct AdcFilteredHolder adcfiltered;
-
 uint16_t turnOffCounter=0xff;
 uint8_t pwm=50;
 volatile uint8_t pwm_front=0;
