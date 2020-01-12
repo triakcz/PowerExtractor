@@ -165,13 +165,6 @@ Wire Wire Line
 	7450 5000 7050 5000
 Connection ~ 7050 5000
 Wire Wire Line
-	5200 4350 5200 5000
-Wire Wire Line
-	4500 5000 5200 5000
-Connection ~ 5200 5000
-Wire Wire Line
-	5200 5000 5500 5000
-Wire Wire Line
 	7450 4300 7450 3850
 Wire Wire Line
 	7450 4600 7450 5000
@@ -219,4 +212,6 @@ Wire Wire Line
 Wire Wire Line
 	8200 5000 7450 5000
 Connection ~ 7450 5000
+Wire Wire Line
+	4500 5000 5500 5000
 $EndSCHEMATC
