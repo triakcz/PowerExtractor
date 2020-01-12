@@ -1,0 +1,222 @@
+EESchema Schematic File Version 4
+LIBS:PowerExtractorNG-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:L L1
+U 1 1 5E1B5A80
+P 5150 3850
+F 0 "L1" V 5340 3850 50  0000 C CNN
+F 1 "47uH/10A" V 5249 3850 50  0000 C CNN
+F 2 "Inductor_THT:L_Toroid_Vertical_L24.6mm_W15.5mm_P11.44mm_Pulse_KM-4" H 5150 3850 50  0001 C CNN
+F 3 "~" H 5150 3850 50  0001 C CNN
+	1    5150 3850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:L L2
+U 1 1 5E1B5BE1
+P 6350 4550
+F 0 "L2" H 6403 4596 50  0000 L CNN
+F 1 "47uH/10A" H 6403 4505 50  0000 L CNN
+F 2 "Inductor_THT:L_Toroid_Vertical_L24.6mm_W15.5mm_P11.44mm_Pulse_KM-4" H 6350 4550 50  0001 C CNN
+F 3 "~" H 6350 4550 50  0001 C CNN
+	1    6350 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5E1B5D2A
+P 5800 3850
+F 0 "C2" V 5548 3850 50  0000 C CNN
+F 1 "1210 4.7uF" V 5639 3850 50  0000 C CNN
+F 2 "Capacitor_SMD:C_1210_3225Metric_Pad1.42x2.65mm_HandSolder" H 5838 3700 50  0001 C CNN
+F 3 "~" H 5800 3850 50  0001 C CNN
+	1    5800 3850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 5E1B5E1F
+P 7050 4450
+F 0 "C3" H 7165 4496 50  0000 L CNN
+F 1 "4.7uF" H 7165 4405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1210_3225Metric_Pad1.42x2.65mm_HandSolder" H 7088 4300 50  0001 C CNN
+F 3 "~" H 7050 4450 50  0001 C CNN
+	1    7050 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5E1B5E8D
+P 4500 4450
+F 0 "C1" H 4615 4496 50  0000 L CNN
+F 1 "1210 4.7uF" H 4615 4405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1210_3225Metric_Pad1.42x2.65mm_HandSolder" H 4538 4300 50  0001 C CNN
+F 3 "~" H 4500 4450 50  0001 C CNN
+	1    4500 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C4
+U 1 1 5E1B5F7A
+P 7450 4450
+F 0 "C4" H 7568 4496 50  0000 L CNN
+F 1 "220uF/25V" H 7568 4405 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L7.2mm_W5.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" H 7488 4300 50  0001 C CNN
+F 3 "~" H 7450 4450 50  0001 C CNN
+	1    7450 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NMOS_GDS Q1
+U 1 1 5E1B624B
+P 5400 4350
+F 0 "Q1" H 5605 4396 50  0000 L CNN
+F 1 "IRFB4110" H 5605 4305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5600 4450 50  0001 C CNN
+F 3 "~" H 5400 4350 50  0001 C CNN
+	1    5400 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5E1B63DD
+P 5500 4850
+F 0 "R1" H 5570 4896 50  0000 L CNN
+F 1 "0R1" H 5570 4805 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 5430 4850 50  0001 C CNN
+F 3 "~" H 5500 4850 50  0001 C CNN
+	1    5500 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 4300 4500 3850
+Connection ~ 4500 3850
+Wire Wire Line
+	4500 3850 5000 3850
+Wire Wire Line
+	5300 3850 5500 3850
+Wire Wire Line
+	5950 3850 6350 3850
+Wire Wire Line
+	6350 3850 6350 4150
+Wire Wire Line
+	7050 3850 7050 4300
+Wire Wire Line
+	7050 4600 7050 5000
+Wire Wire Line
+	7050 5000 6350 5000
+Wire Wire Line
+	4500 5000 4500 4600
+Connection ~ 5500 5000
+Connection ~ 4500 5000
+Connection ~ 5500 3850
+Wire Wire Line
+	5500 3850 5650 3850
+Wire Wire Line
+	5500 3850 5500 4150
+Wire Wire Line
+	5500 4550 5500 4700
+Wire Wire Line
+	6350 4700 6350 5000
+Connection ~ 6350 5000
+Wire Wire Line
+	6350 5000 5500 5000
+$Comp
+L Device:D_x2_KCom_AKA D1
+U 1 1 5E1B6E38
+P 6650 3850
+F 0 "D1" V 6604 3929 50  0000 L CNN
+F 1 "D_x2_KCom_AKA" V 6695 3929 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 6650 3850 50  0001 C CNN
+F 3 "~" H 6650 3850 50  0001 C CNN
+	1    6650 3850
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	6850 3850 7050 3850
+Wire Wire Line
+	6650 3550 6350 3550
+Wire Wire Line
+	6350 3550 6350 3850
+Connection ~ 6350 3850
+Wire Wire Line
+	6650 4150 6350 4150
+Connection ~ 6350 4150
+Wire Wire Line
+	6350 4150 6350 4400
+Wire Wire Line
+	7050 3850 7450 3850
+Connection ~ 7050 3850
+Wire Wire Line
+	7450 5000 7050 5000
+Connection ~ 7050 5000
+Wire Wire Line
+	5200 4350 5200 5000
+Wire Wire Line
+	4500 5000 5200 5000
+Connection ~ 5200 5000
+Wire Wire Line
+	5200 5000 5500 5000
+Wire Wire Line
+	7450 4300 7450 3850
+Wire Wire Line
+	7450 4600 7450 5000
+Wire Wire Line
+	4250 5000 4500 5000
+Wire Wire Line
+	4250 3850 4500 3850
+$Comp
+L Connector:Conn_01x02_Female J1
+U 1 1 5E1BCE79
+P 3800 4500
+F 0 "J1" H 3694 4175 50  0000 C CNN
+F 1 "INPUT RECTIFIED" H 3694 4266 50  0000 C CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 3800 4500 50  0001 C CNN
+F 3 "~" H 3800 4500 50  0001 C CNN
+	1    3800 4500
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female J2
+U 1 1 5E1BCF4F
+P 8400 4400
+F 0 "J2" H 8428 4376 50  0000 L CNN
+F 1 "OUTPUT" H 8428 4285 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 8400 4400 50  0001 C CNN
+F 3 "~" H 8400 4400 50  0001 C CNN
+	1    8400 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 3850 4250 4400
+Wire Wire Line
+	4000 4400 4250 4400
+Wire Wire Line
+	4000 4500 4250 4500
+Wire Wire Line
+	4250 4500 4250 5000
+Wire Wire Line
+	7450 3850 8200 3850
+Wire Wire Line
+	8200 3850 8200 4400
+Connection ~ 7450 3850
+Wire Wire Line
+	8200 4500 8200 5000
+Wire Wire Line
+	8200 5000 7450 5000
+Connection ~ 7450 5000
+$EndSCHEMATC

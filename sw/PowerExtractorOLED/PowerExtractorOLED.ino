@@ -4,6 +4,8 @@
 #include <Adafruit_SSD1306.h>
 #include <avr/interrupt.h>
 
+Adafruit_SSD1306 display(-1);
+
 #define SELF_POWER 7
 #define CHARGE_POWER 8
 #define PWM_OUT 10
@@ -32,13 +34,17 @@ const uint8_t KEYS[NUM_KEYS] = {9,4,12,11};
 
 #define PWM_MAX 220
 
+struct AdcOneValHolder {
+  uint32_t value;
+  uint16_t count;
+};
+
 struct AdcValuesHolder {
   uint16_t LIGHT;
-  uint32_t VI;
-  uint32_t VO;
-  uint32_t II;
-  uint32_t IO;
-  uint16_t count;
+  AdcOneValHolder VI;
+  AdcOneValHolder VO;
+  AdcOneValHolder II;
+  AdcOneValHolder IO;
   boolean process;
 };
 
@@ -57,7 +63,6 @@ uint16_t turnOffCounter=0xff;
 uint8_t pwm=50;
 volatile uint8_t pwm_front=0;
 
-Adafruit_SSD1306 display(-1);
 uint8_t blink;
 volatile uint16_t rotations=0;
 
@@ -66,10 +71,11 @@ void rotation_interrupt() {
   shiftAdcResult();
 }
 
-void setup() {                
-  cli();
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
+void setup() {
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x64)
   display.clearDisplay();
+  pinMode(13, OUTPUT);
+  digitalWrite(13, HIGH);
   display.display();
   pinMode(SENSE_VI,INPUT);
   pinMode(SENSE_VO,INPUT);
@@ -102,8 +108,7 @@ void setup() {
   ADCSRA |= (1 << ADATE); //free running mode (not setting any ADTS bits)
   ADCSRA |= (1 << ADIE); //enable interrupts when measurement complete
   ADCSRA |= (1 << ADEN); //enable ADC
-  ADCSRA |= (1 << ADSC); //start ADC measurements  
-  sei();  
+  ADCSRA |= (1 << ADSC); //start ADC measurements
 }
 
 volatile uint16_t timercnt=0;
@@ -123,18 +128,24 @@ uint8_t adcidx=SENSE_LIGHT;
 
 void shiftAdcResult() {
   cli();
-  adcvalues2.count=adcvalues.count;
-  adcvalues2.VI=adcvalues.VI;
-  adcvalues2.VO=adcvalues.VO;
-  adcvalues2.II=adcvalues.II;
-  adcvalues2.IO=adcvalues.IO;
+  adcvalues2.VI.value=adcvalues.VI.value;
+  adcvalues2.VI.count=adcvalues.VI.count;
+  adcvalues2.VO.value=adcvalues.VO.value;
+  adcvalues2.VO.count=adcvalues.VO.count;
+  adcvalues2.II.value=adcvalues.II.value;
+  adcvalues2.II.count=adcvalues.II.count;
+  adcvalues2.IO.value=adcvalues.IO.value;
+  adcvalues2.IO.count=adcvalues.IO.count;
   adcvalues2.LIGHT=adcvalues.LIGHT;
   adcvalues2.process=true;
-  adcvalues.count=0;
-  adcvalues.VI=0;
-  adcvalues.II=0;
-  adcvalues.VO=0;
-  adcvalues.IO=0;
+  adcvalues.VI.value=0;
+  adcvalues.VI.count=0;
+  adcvalues.II.value=0;
+  adcvalues.II.count=0;
+  adcvalues.VO.value=0;
+  adcvalues.VO.count=0;
+  adcvalues.IO.value=0;
+  adcvalues.IO.count=0;
   adcvalues.LIGHT=0;
   adcvalues.process=false;
   sei();
@@ -149,24 +160,39 @@ ISR(ADC_vect) {
     case SENSE_LIGHT:
       ADMUX|=SENSE_II;
       adcvalues.LIGHT=val;
+      if (adcvalues.VO.count > ADC_MAX_SAMPLES || adcvalues.process) {
+        shiftAdcResult();
+      }
       break;
     case SENSE_II:
       ADMUX|=SENSE_IO;
-      adcvalues.II+=val;
+      adcvalues.II.value+=val;
+      adcvalues.II.count++;
+      if (adcvalues.VO.count > ADC_MAX_SAMPLES || adcvalues.process) {
+        shiftAdcResult();
+      }
       break;
     case SENSE_IO:
       ADMUX|=SENSE_VI;
-      adcvalues.IO+=val;
+      adcvalues.IO.value+=val;
+      adcvalues.IO.count++;
+      if (adcvalues.VO.count > ADC_MAX_SAMPLES || adcvalues.process) {
+        shiftAdcResult();
+      }
       break;
     case SENSE_VI:
       ADMUX|=SENSE_VO;
-      adcvalues.VI+=val;
+      adcvalues.VI.value+=val;
+      adcvalues.VI.count++;
+      if (adcvalues.VI.count > ADC_MAX_SAMPLES || adcvalues.process) {
+        shiftAdcResult();
+      }
       break;
     case SENSE_VO:
       ADMUX|=SENSE_LIGHT;
-      adcvalues.VO+=val;
-      adcvalues.count++;
-      if (adcvalues.count > ADC_MAX_SAMPLES || adcvalues.process){
+      adcvalues.VO.value+=val;
+      adcvalues.VO.count++;
+      if (adcvalues.VO.count > ADC_MAX_SAMPLES || adcvalues.process) {
         shiftAdcResult();
       }
       break;
@@ -211,7 +237,7 @@ void displayBatSymbol(byte chargeLevel) {
 
 #define str(x) #x
 #define dispADVal(TYPE) {\
-  display.print(str(TYPE) " = ");\
+  display.print(str(TYPE) "= ");\
   display.print(adcfiltered.TYPE * SENSE_##TYPE##_CONV );\
   display.print(SENSE_##TYPE##_UNIT);\
 }
@@ -232,30 +258,38 @@ byte handleKbd() {
   return 0;
 }
 
-void turnOff() {
-  digitalWrite(SELF_POWER,LOW);  
-}
-
 void loop() {
+  boolean blink;
+  if (blink) {
+    digitalWrite(13, HIGH);
+  } else { 
+    digitalWrite(13,LOW);
+  }
+  blink = !blink;
   if (adcvalues2.process) {
-    adcfiltered.VI=adcvalues2.VI/adcvalues2.count;
-    adcfiltered.VO=adcvalues2.VO/adcvalues2.count;
-    adcfiltered.II=adcvalues2.II/adcvalues2.count;
-    adcfiltered.IO=adcvalues2.IO/adcvalues2.count;
+    adcfiltered.VI=adcvalues2.VI.value/adcvalues2.VI.count;
+    adcfiltered.VO=adcvalues2.VO.value/adcvalues2.VO.count;
+    adcfiltered.II=adcvalues2.II.value/adcvalues2.II.count;
+    adcfiltered.IO=adcvalues2.IO.value/adcvalues2.IO.count;
+    adcvalues2.process=false;
   }
   display.clearDisplay();
   display.setTextColor(WHITE);
-  display.setTextSize(0);
+  display.setTextSize(2);
   display.setCursor(0,0);
-  display.print("TEST");
+//  display.print(adcvalues.VO);
   dispADVal(VO);
   display.println();
+//  display.print(adcvalues.VI);
   dispADVal(VI);
   display.println();
+//  display.print(adcvalues.IO);
   dispADVal(IO);
   display.println();
+//  display.print(adcvalues.II);
   dispADVal(II);
   display.println();
+  display.display();  
   switch (handleKbd()) {
     case 1:    
       pwm_front+=32;
@@ -270,7 +304,6 @@ void loop() {
       pwm-=10;
       break;
   }
-  display.display();  
   analogWrite(PWM_OUT,pwm);
   analogWrite(LED_FRONT,pwm_front);
   
