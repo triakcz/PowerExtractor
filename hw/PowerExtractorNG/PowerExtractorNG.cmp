@@ -1,0 +1,91 @@
+Cmp-Mod V01 Created by PcbNew   date = Po 13. ledna 2020, 00:39:56 CET
+
+BeginCmp
+TimeStamp = 5E3453CF
+Path = /5E1B5E1F
+Reference = C3;
+ValeurCmp = 4.7uF;
+IdModule  = Capacitor_SMD:C_1210_3225Metric_Pad1.42x2.65mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E344089
+Path = /5E1B5D2A
+Reference = C2;
+ValeurCmp = 1210 4.7uF;
+IdModule  = Capacitor_SMD:C_1210_3225Metric_Pad1.42x2.65mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E345451
+Path = /5E1B5E8D
+Reference = C1;
+ValeurCmp = 1210 4.7uF;
+IdModule  = Capacitor_SMD:C_1210_3225Metric_Pad1.42x2.65mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E344054
+Path = /5E1B5BE1
+Reference = L2;
+ValeurCmp = 47uH/10A;
+IdModule  = Inductor_THT:L_Toroid_Vertical_L24.6mm_W15.5mm_P11.44mm_Pulse_KM-4;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E345020
+Path = /5E1B5A80
+Reference = L1;
+ValeurCmp = 47uH/10A;
+IdModule  = Inductor_THT:L_Toroid_Vertical_L24.6mm_W15.5mm_P11.44mm_Pulse_KM-4;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E345A78
+Path = /5E1B624B
+Reference = Q1;
+ValeurCmp = IRFB4110;
+IdModule  = Package_TO_SOT_THT:TO-220-3_Vertical;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E34558F
+Path = /5E1B6E38
+Reference = D1;
+ValeurCmp = D_x2_KCom_AKA;
+IdModule  = Package_TO_SOT_THT:TO-220-3_Vertical;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E343FC9
+Path = /5E1BCF4F
+Reference = J2;
+ValeurCmp = OUTPUT;
+IdModule  = TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E343F62
+Path = /5E1BCE79
+Reference = J1;
+ValeurCmp = INPUT RECTIFIED;
+IdModule  = TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E345E7C
+Path = /5E1B63DD
+Reference = R1;
+ValeurCmp = 0R1;
+IdModule  = Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E28B1B8
+Path = /5E1B5F7A
+Reference = C4;
+ValeurCmp = 220uF/25V;
+IdModule  = Capacitor_THT:C_Rect_L7.2mm_W5.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2;
+EndCmp
+
+EndListe
